@@ -413,52 +413,60 @@ double eone3(struct vortex *a, int n) {
 		f = (t - v) - s;
 		v = t;
 
-#if XG & 1
+#if XG & 2
 		// todo:
 		// if (a[i].x < X / 2)
 
 		r = rrb(a[n - 1].x,a[n - 1].y,-a[i].x,a[i].y);
 		if (a[i].zn == a[n - 1].zn)
-			s = e3(r,a[n - 1].l) + e3(r,a[i].l) - f;
+//			s = -(e3(r,a[n - 1].l) + e3(r,a[i].l)) - f;
+			s = -(e3(r,a[n - 1].l) + e3(r,a[i].l)) / 2 - f;
 		else
-			s = -e3(r,a[n - 1].l) - e3(r,a[i].l) - f;
+//			s = e3(r,a[n - 1].l) + e3(r,a[i].l) - f;
+			s = (e3(r,a[n - 1].l) + e3(r,a[i].l)) / 2 - f;
 		t = v + s;
 		f = (t - v) - s;
 		v = t;
 
 		r = rrb(a[n - 1].x,a[n - 1].y,2 * X - a[i].x,a[i].y);
 		if (a[i].zn == a[n - 1].zn)
-			s = e3(r,a[n - 1].l) + e3(r,a[i].l) - f;
+//			s = -(e3(r,a[n - 1].l) + e3(r,a[i].l)) - f;
+			s = -(e3(r,a[n - 1].l) + e3(r,a[i].l)) / 2 - f;
 		else
-			s = -e3(r,a[n - 1].l) - e3(r,a[i].l) - f;
+//			s = e3(r,a[n - 1].l) + e3(r,a[i].l) - f;
+			s = (e3(r,a[n - 1].l) + e3(r,a[i].l)) / 2 - f;
 		t = v + s;
 		f = (t - v) - s;
 		v = t;
 #endif
-#if XG & 2
+#if XG & 1
 		// todo:
 		//if (a[i].y < Y / 2)
 
 		r = rrb(a[n - 1].x,a[n - 1].y,a[i].x,-a[i].y);
 		if (a[i].zn == a[n - 1].zn)
-			s = e3(r,a[n - 1].l) + e3(r,a[i].l) - f;
+//			s = -(e3(r,a[n - 1].l) + e3(r,a[i].l)) - f;
+			s = -(e3(r,a[n - 1].l) + e3(r,a[i].l)) / 2 - f;
 		else
-			s = -e3(r,a[n - 1].l) - e3(r,a[i].l) - f;
+//			s = e3(r,a[n - 1].l) + e3(r,a[i].l) - f;
+			s = (e3(r,a[n - 1].l) + e3(r,a[i].l)) / 2 - f;
 		t = v + s;
 		f = (t - v) - s;
 		v = t;
 
 		r = rrb(a[n - 1].x,a[n - 1].y,a[i].x,2 * Y - a[i].y);
 		if (a[i].zn == a[n - 1].zn)
-			s = e3(r,a[n - 1].l) + e3(r,a[i].l) - f;
+//			s = -(e3(r,a[n - 1].l) + e3(r,a[i].l)) - f;
+			s = -(e3(r,a[n - 1].l) + e3(r,a[i].l)) / 2 - f;
 		else
-			s = -e3(r,a[n - 1].l) - e3(r,a[i].l) - f;
+//			s = e3(r,a[n - 1].l) + e3(r,a[i].l) - f;
+			s = (e3(r,a[n - 1].l) + e3(r,a[i].l)) / 2 - f;
 		t = v + s;
 		f = (t - v) - s;
 		v = t;
 #endif
 	}
-#if XG & 1
+#if XG & 2
 	// todo:
 	// if (a[i].x < X / 2)
 
@@ -474,7 +482,7 @@ double eone3(struct vortex *a, int n) {
 	f = (t - v) - s;
 	v = t;
 #endif
-#if XG & 2
+#if XG & 1
 	// todo:
 	//if (a[i].y < Y / 2)
 
@@ -512,52 +520,60 @@ double tote3(struct vortex *a, int n) {
 			f = (t - v) - s;
 			v = t;
 
-#if XG & 1
+#if XG & 2
 			// todo:
 			// if (a[i].x < X / 2)
 
 			r = rrb(a[j].x,a[j].y,-a[i].x,a[i].y);
 			if (a[j].zn == a[i].zn)
-				s = e3(r,a[j].l) + e3(r,a[i].l) - f;
+//				s = -(e3(r,a[j].l) + e3(r,a[i].l)) - f;
+				s = -(e3(r,a[j].l) + e3(r,a[i].l)) / 2 - f;
 			else
-				s = -e3(r,a[j].l) - e3(r,a[i].l) - f;
+//				s = e3(r,a[j].l) + e3(r,a[i].l) - f;
+				s = (e3(r,a[j].l) + e3(r,a[i].l)) / 2 - f;
 			t = v + s;
 			f = (t - v) - s;
 			v = t;
 
 			r = rrb(a[j].x,a[j].y,2 * X - a[i].x,a[i].y);
 			if (a[i].zn == a[j].zn)
-				s = e3(r,a[j].l) + e3(r,a[i].l) - f;
+//				s = -(e3(r,a[j].l) + e3(r,a[i].l)) - f;
+				s = -(e3(r,a[j].l) + e3(r,a[i].l)) / 2 - f;
 			else
-				s = -e3(r,a[j].l) - e3(r,a[i].l) - f;
+//				s = e3(r,a[j].l) + e3(r,a[i].l) - f;
+				s = (e3(r,a[j].l) + e3(r,a[i].l)) / 2 - f;
 			t = v + s;
 			f = (t - v) - s;
 			v = t;
 #endif
-#if XG & 2
+#if XG & 1
 			// todo:
 			//if (a[i].y < Y / 2)
 
 			r = rrb(a[j].x,a[j].y,a[i].x,-a[i].y);
 			if (a[j].zn == a[i].zn)
-				s = e3(r,a[j].l) + e3(r,a[i].l) - f;
+//				s = -(e3(r,a[j].l) + e3(r,a[i].l)) - f;
+				s = -(e3(r,a[j].l) + e3(r,a[i].l)) / 2 - f;
 			else
-				s = -e3(r,a[j].l) - e3(r,a[i].l) - f;
+//				s = e3(r,a[j].l) + e3(r,a[i].l) - f;
+				s = (e3(r,a[j].l) + e3(r,a[i].l)) / 2 - f;
 			t = v + s;
 			f = (t - v) - s;
 			v = t;
 
 			r = rrb(a[j].x,a[j].y,a[i].x,2 * Y - a[i].y);
 			if (a[i].zn == a[j].zn)
-				s = e3(r,a[j].l) + e3(r,a[i].l) - f;
+//				s = -(e3(r,a[j].l) + e3(r,a[i].l)) - f;
+				s = -(e3(r,a[j].l) + e3(r,a[i].l)) / 2 - f;
 			else
-				s = -e3(r,a[j].l) - e3(r,a[i].l) - f;
+//				s = e3(r,a[j].l) + e3(r,a[i].l) - f;
+				s = (e3(r,a[j].l) + e3(r,a[i].l)) / 2 - f;
 			t = v + s;
 			f = (t - v) - s;
 			v = t;
 #endif
 		}
-#if XG & 1
+#if XG & 2
 		// todo:
 		// if (a[i].x < X / 2)
 
@@ -573,7 +589,7 @@ double tote3(struct vortex *a, int n) {
 		f = (t - v) - s;
 		v = t;
 #endif
-#if XG & 2
+#if XG & 1
 		// todo:
 		//if (a[i].y < Y / 2)
 
